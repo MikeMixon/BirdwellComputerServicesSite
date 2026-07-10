@@ -9,7 +9,7 @@ http://www.templatemo.com/tm-516-known
   @import url('https://fonts.googleapis.com/css?family=Muli:300,700|Nunito');
 
   body {
-    background: #ffffff;
+    background: #000000;
     font-family: 'Nunito', sans-serif;
     overflow-x: hidden;
     padding-top: 70px;
@@ -27,13 +27,13 @@ http://www.templatemo.com/tm-516-known
   }
 
   h1 {
-    color: #252525;
+    color: #ca2929;
     font-size: 3em;
     line-height: normal;
   }
 
   h2 {
-    color: #353535;
+    color: #ca2929;
     font-size: 2em;
     padding-bottom: 10px;
   }
@@ -45,11 +45,11 @@ http://www.templatemo.com/tm-516-known
 
   h3,
   h3 a {
-    color: #454545;
+    color: #ca2929;
   }
 
   p {
-    color: #757575;
+    color: #ca2929;
     font-size: 14px;
     font-weight: normal;
     line-height: 24px;
@@ -257,9 +257,9 @@ http://www.templatemo.com/tm-516-known
   -----------------------------------------*/
 
   .custom-navbar {
-    background: #ffffff;
+    background: #201f1f;
     border-top: 5px solid #ca2929;
-    border-bottom: 0;
+    border-bottom: 5px solid #ca2929;
     -webkit-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
     box-shadow: 0 1px 30px rgba(0, 0, 0, 0.1);
@@ -269,7 +269,7 @@ http://www.templatemo.com/tm-516-known
   }
 
   .custom-navbar .navbar-brand {
-    color: #454545;
+    color: #ca2929;
     font-size: 18px;
     font-weight: bold;
     line-height: 40px;
@@ -298,7 +298,7 @@ http://www.templatemo.com/tm-516-known
 
   .custom-navbar .nav li a {
     line-height: 40px;
-    color: #575757;
+    color: #ca2929;
     padding-right: 22px;
     padding-left: 22px;
   }
@@ -328,410 +328,194 @@ http://www.templatemo.com/tm-516-known
   }
 
   .custom-navbar .navbar-toggle .icon-bar {
-    background: #252525;
+    background: #e40808;
     border-color: transparent;
   }
 
 
 
-  /*---------------------------------------
-      HOME  & SLIDER            
-  -----------------------------------------*/
+ /* =========================
+   HOME SECTION
+========================= */
 
-  #home {
-    padding: 0;
-  }
+#home {
+    background: #050505;
+    padding-bottom: 80px;
+}
 
-  #home h1 {
-    color: #ffffff;
-  }
+/* =========================
+   SLIDER
+========================= */
 
-  #home h3 {
-    color: #f9f9f9;
-    font-size: 16px;
-    font-weight: 300;
-    margin: 0;
-    padding: 5px 0 40px 0;
-  }
+.home-slider {
+    margin-bottom: 60px;
+}
 
-  @media (min-width: 768px) {
-    .home-slider .col-md-6 {
-      padding-left: 0;
-    }
-  }
+.slider-img {
+    width: 100%;
+    height: 600px;
+    object-fit: contain;
+    background:
+        radial-gradient(circle at center, #1a1a1a 0%, #050505 70%);
+    padding: 40px;
+}
 
-  .home-slider .caption {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: left;
-    background-color: rgba(20,20,20,0.2);
-    height: 100%;
-    color: #fff;
-    cursor: e-resize;
-  }
+/* =========================
+   FEATURE BOXES
+========================= */
 
-  .home-slider .item {
-    background-repeat: no-repeat;
-    background-attachment: local;
-    background-size: cover;
-    height: 650px;
-  }
-  
-  .caption h3 a { color: #FFF; }
-  .caption h3 a:hover { color: #FF3; }
-
-  .home-slider .item-first {
-    background-image: url(../images/slider-image1.jpg);
-	background-position: center;
-  }
-
-  .home-slider .item-second {
-    background-image: url(../images/slider-image2.jpg);
-  }
-
-  .home-slider .item-third {
-    background-image: url(../images/slider-image3.jpg);
-  }
-
-
-
-  /*---------------------------------------
-      FEATURE              
-  -----------------------------------------*/
-
-  .feature-thumb {
-    border: 1px solid #f0f0f0;
-    padding: 5em 3em;
-  }
-
-  .feature-thumb span {
-    background: #ca2929;
-    border-radius: 50px;
-    color: #ffffff;
-    font-size: 25px;
-    font-weight: bold;
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
-    margin-bottom: 5px;
-  }
-
-  .feature-thumb h3 {
-    margin: 10px 0;
-  }
-
-
-
-  /*---------------------------------------
-      ABOUT              
-  -----------------------------------------*/
-
-  #about figure {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: 15px;
-  }
-
-  #about figure span {
-    float: left;
-    margin-left: -15px;
-    padding: 15px 20px;
-    position: relative;
-    top: 20px;
-  }
-
-  #about figure span i {
-    background: #ca2929;
-    border-radius: 50px;
-    color: #ffffff;
-    font-size: 25px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-  }
-
-
-
-  /*---------------------------------------
-      TEAM              
-  -----------------------------------------*/
-
-  .team-thumb {
-    background: #ffffff;
+#home .feature-thumb {
     position: relative;
     overflow: hidden;
-    text-align: left;
-  }
 
-  .team-info {
-    padding: 20px 30px;
-  }
+    background: rgba(15,15,15,.92);
+    backdrop-filter: blur(10px);
 
-  .team-image img {
-    width: 100%;
-  }
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 18px;
 
-  .team-thumb .social-icon {
-    border-top: 1px solid #f0f0f0;
-    padding: 4px 20px 0 20px;
-  }
-
-  .team-thumb .social-icon li a {
-    background: #ffffff;
-    color: #252020;
-  }
-
-  .team-info h3 {
-    margin: 0;
-  }
-
-
-  /*---------------------------------------
-      COURSES             
-  -----------------------------------------*/
-
-  #courses .section-title {
-    text-align: center;
-  }
-
-  #courses .owl-theme .owl-nav {
-    margin-top: 30px;
-  }
-
-  #courses .owl-theme .owl-nav [class*=owl-] {
-    border-radius: 2px;
-    font-size: 16px;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    padding: 0;
-  }
-
-  .courses-thumb {
-    background: #f9f9f9;
-    position: relative;
-  }
-
-  .courses-top {
-    position: relative;
-  }
-
-  .courses-image {
-    background: linear-gradient(to right, #202020, #101010);
-  }
-
-  .courses-date {
-    background: linear-gradient(rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.6));
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    padding: 20px 25px;
-  }
-
-  .courses-date span,
-  .courses-author span {
-    font-size: 14px;
-    font-weight: bold;
-  }
-
-  .courses-date span {
-    color: #ffffff;
-    display: inline-block;
-    margin-right: 10px;
-  }
-
-  .courses-detail {
-    padding: 25px 25px 15px 25px;
-  }
-
-  .courses-detail h3 {
-    margin: 0 0 2px 0;
-  }
-
-  .courses-info {
-    border-top: 1px solid #f0f0f0;
-    position: relative;
-    clear: both;
-    padding: 15px 25px;
-  }
-
-  .courses-author,
-  .courses-author span {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
-  .courses-author img {
-    display: inline-block !important;
-    border-radius: 50px;
-    width: 50px !important;
-    height: 50px;
-    margin-right: 10px;
-  }
-
-  .courses-price {
-    float: right;
-    margin-top: 10px;
-  }
-
-  .courses-price span {
-    background: #ca2929;
-    border-radius: 2px;
-    color: #ffffff;
-    display: block;
-    padding: 5px 10px;
-  }
-
-  .courses-price.free span {
-    background: #ca2929;
-  }
-
-
-
-  /*---------------------------------------
-     NEWS              
-  -----------------------------------------*/
-
-  .news-thumb {
-    clear: both;
-    position: relative;
-    overflow: hidden;
+    padding: 40px 30px;
     margin-bottom: 30px;
-  }
 
-  .news-thumb .news-image {
-    float: left;
-    width: 40%;
-    margin-right: 30px;
-  }
+    min-height: 340px;
 
-  .news-info h3 {
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
 
-  .news-date span {
-    color: #909090;
-    font-weight: bold;
-  }
+/* RED FADE EFFECT (YOUR EFFECT) */
+#home .feature-thumb::before {
+    content: "";
 
+    position: absolute;
+    inset: 0;
 
+    background:
+        linear-gradient(
+            270deg,
+            rgba(220,53,69,.9),
+            rgba(255,255,255,.15),
+            rgba(220,53,69,.9)
+        );
 
-  /*---------------------------------------
-      TESTIMONIAL             
-  -----------------------------------------*/
+    background-size: 600% 600%;
 
-  #testimonial .item {
-    background: #ffffff;
-    margin: 20px 0;
-    padding: 4em 3em;
-    text-align: left;
-  }
+    opacity: 0;
 
-  #courses .col-md-4,
-  #testimonial .col-md-4 {
-    display: block;
-    width: 100%;
-  }
+    transition: opacity 0.5s ease;
 
-  #testimonial .item > p {
-    font-size: 16px;
-    line-height: 26px;
-  }
+    z-index: 0;
+}
 
-  .tst-rating {
-    margin-bottom: 15px;
-  }
+/* HOVER EFFECT */
+#home .feature-thumb:hover::before {
+    opacity: 1;
+    animation: gradientShift 6s ease infinite;
+}
 
-  .tst-rating .fa {
-    color: #ca2929;
-  }
+/* COOL GLOW */
+#home .feature-thumb:hover {
+    transform: translateY(-10px);
 
-  .tst-image,
-  .tst-author {
-    display: inline-block;
-    vertical-align: middle;
+    border-color: #dc3545;
+
+    box-shadow:
+        0 0 25px rgba(220,53,69,.25),
+        0 0 60px rgba(220,53,69,.12);
+}
+
+/* CONTENT ABOVE OVERLAY */
+#home .feature-thumb h2,
+#home .feature-thumb p {
+    position: relative;
+    z-index: 2;
+}
+
+/* TITLES */
+#home .feature-thumb h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
     margin-bottom: 20px;
-    text-align: left;
-  }
+    letter-spacing: 1px;
+}
 
-  .tst-image img {
-    border-radius: 50px;
-    width: 60px !important;
-    height: 60px;
-    margin-right: 15px;
-  }
+/* TEXT */
+#home .feature-thumb p {
+    color: #d0d0d0;
+    font-size: 15px;
+    line-height: 1.8;
+}
 
-  .tst-author h4 {
-    margin: 0;
-  }
+/* =========================
+   SUBTLE TOP LINE
+========================= */
 
-  .tst-author span {
-    color: #808080;
-    font-size: 14px;
-  }
+#home .feature-thumb::after {
+    content: "";
 
+    position: absolute;
 
+    top: 0;
+    left: 0;
 
-  /*---------------------------------------
-      CONTACT             
-  -----------------------------------------*/
+    width: 100%;
+    height: 3px;
 
-  #contact {
-    background: #ca2929;
-  }
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #dc3545,
+            transparent
+        );
 
-  #contact h2 {
-    color: #ffffff;
-  }
+    opacity: .9;
+}
 
-  #contact .section-title {
-    padding-bottom: 20px;
-  }
+/* =========================
+   ANIMATION
+========================= */
 
-  #contact h2 > small,
-  #contact p,
-  #contact a {
-    color: #f9f9f9;
-  }
+@keyframes gradientShift {
 
-  #contact-form {
-    padding: 1em 0;
-  }
+    0% {
+        background-position: 0% 50%;
+    }
 
-  #contact-form .col-md-12,
-  #contact-form .col-md-4 {
-    padding-left: 0;
-  }
+    50% {
+        background-position: 100% 50%;
+    }
 
-  #contact-form .form-control {
-    border: 0;
-    border-radius: 5px;
-    box-shadow: none;
-    margin: 10px 0;
-  }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 
-  #contact-form input {
-    height: 50px;
-  }
+/* =========================
+   MOBILE
+========================= */
 
-  #contact-form input[type='submit'] {
-    border-radius: 50px;
-    border: 1px solid transparent;
-  }
+@media(max-width:768px){
 
-  #contact-form input[type='submit']:hover {
-    background: transparent;
-    border-color: #ffffff;
-    color: #ffffff;
-  }
+    .slider-img{
+        height: 300px;
+        padding: 20px;
+    }
+
+    #home .feature-thumb{
+        min-height: auto;
+        padding: 30px 20px;
+    }
+
+    #home .feature-thumb h2{
+        font-size: 24px;
+    }
+
+}
   
-
 
 
   /*---------------------------------------
@@ -790,76 +574,6 @@ http://www.templatemo.com/tm-516-known
     display: inline-block;
     list-style: none;
     margin: 5px 10px 5px 0;
-  }
-
-  .newsletter-form .form-control {
-    background: transparent;
-    border-radius: 0;
-    box-shadow: none;
-    border: 0;
-    border-bottom: 1px solid #303030;
-    height: 50px;
-    margin: 5px 0;
-  }
-
-  .newsletter-form input[type="submit"] {
-    background: transparent;
-    border: 1px solid #f9f9f9;
-    border-radius: 50px;
-    color: #ffffff;
-    display: block;
-    margin-top: 20px;
-    outline: none;
-    width: 50%;
-  }
-
-  .newsletter-form input[type="submit"]:hover {
-    background: #29ca8e;
-    border-color: transparent;
-  }
-
-  .newsletter-form .form-group span {
-    color: #909090;
-    display: block;
-    font-size: 12px;
-    margin-top: 20px;
-  }
-
-
-
-  /*---------------------------------------
-     SOCIAL ICON              
-  -----------------------------------------*/
-
-  .social-icon {
-    position: relative;
-    padding: 0;
-    margin: 0;
-  }
-
-  .social-icon li {
-    display: inline-block;
-    list-style: none;
-    margin-bottom: 5px;
-  }
-
-  .social-icon li a {
-    border-radius: 100px;
-    color: #29ca8e;
-    font-size: 15px;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.4s ease-in-out;
-    position: relative;
-    margin: 5px 5px 5px 0;
-  }
-
-  .social-icon li a:hover {
-    background: #29ca8e;
-    color: #ffffff;
   }
 
 
@@ -993,4 +707,12 @@ http://www.templatemo.com/tm-516-known
       height: inherit;
     }
   }
-  
+  #contact h1,
+#contact h4 {
+  color: #ffffff !important;
+}
+
+#contact p,
+#contact p a {
+  color: #ca2929 !important;
+}

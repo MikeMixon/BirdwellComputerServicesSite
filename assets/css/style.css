@@ -1,3 +1,7 @@
+
+
+
+
 .full-width-logo {
     width: 100%;          /* Stretch image edge-to-edge */
     height: auto;         /* Maintain aspect ratio */
@@ -23,9 +27,10 @@
 .support-card {
     width: 350px;                 /* Make card compact */
     margin: 20px auto;            /* Center the card horizontally */
-    text-align: center;            /* Center all text and elements */
+    text-align: center; 
+    border: 3px solid #dc3545;           /* Center all text and elements */
     border-radius: 14px;
-    background: white;
+    background: black;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
@@ -107,6 +112,294 @@
     100% { background-position: 0% 50%; }
 }
 
+/* =========================
+    MARK:
+   REMOTE SUPPORT PAGE
+========================= */
+
+#remote {
+    background:
+        radial-gradient(circle at top, #151515 0%, #050505 70%);
+    min-height: 100vh;
+    padding: 120px 0 80px;
+}
+
+/* PAGE TITLE */
+
+#remote .home-info h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+#remote .home-info h2::after {
+    content: "";
+
+    width: 120px;
+    height: 4px;
+
+    background: linear-gradient(to right, #dc3545, transparent);
+
+    display: block;
+    margin: 15px auto 0;
+    border-radius: 10px;
+}
+
+/* =========================
+    MARK:
+   CARD LINK
+========================= */
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* =========================
+    MARK:
+   SUPPORT CARDS
+========================= */
+
+.support-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 360px;
+
+    margin: 20px auto;
+
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(15,15,15,.92);
+
+    backdrop-filter: blur(10px);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+
+    cursor: pointer;
+}
+
+/* RED FADE EFFECT */
+
+.support-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            rgba(220,53,69,.9),
+            rgba(255,255,255,.15),
+            rgba(220,53,69,.9)
+        );
+
+    background-size: 600% 600%;
+
+    opacity: 0;
+
+    transition: opacity 0.5s ease;
+
+    z-index: 0;
+}
+
+/* HOVER */
+
+.support-card:hover::before {
+    opacity: 1;
+    animation: gradientShift 6s ease infinite;
+}
+
+.support-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #dc3545;
+
+    box-shadow:
+        0 0 25px rgba(220,53,69,.25),
+        0 0 60px rgba(220,53,69,.12);
+}
+
+/*=========================
+    MARK:
+   CARD CONTENT
+========================= */
+
+.support-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 40px 25px;
+}
+
+/* =========================
+    MARK:
+   AVATAR
+========================= */
+
+.support-avatar {
+    width: 120px;
+    height: 120px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid #dc3545;
+
+    margin-bottom: 20px;
+
+    transition: transform 0.35s ease,
+                box-shadow 0.35s ease;
+}
+
+/* IMAGE POP */
+
+.support-card:hover .support-avatar {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 20px rgba(220,53,69,.45);
+}
+
+/* =========================
+    MARK:
+   TEXT
+========================= */
+
+.support-text h3 {
+    color: white;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+/* =========================
+    MARK:
+   CONNECT BUTTON
+========================= */
+
+.support-btn {
+    background:
+        linear-gradient(
+            90deg,
+            #c1121f,
+            #dc3545
+        );
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+    transition: all 0.3s ease;
+}
+
+/* BUTTON HOVER */
+
+.support-card:hover .support-btn {
+    transform: scale(1.08);
+
+    background:
+        linear-gradient(
+            90deg,
+            #dc3545,
+            #ff4d5d
+        );
+
+    box-shadow:
+        0 0 18px rgba(220,53,69,.45);
+}
+
+/* =========================
+    MARK:
+   TOP GLOW LINE
+========================= */
+
+.support-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #dc3545,
+            transparent
+        );
+
+    opacity: .9;
+}
+
+/* =========================
+    MARK:
+   ANIMATION
+========================= */
+
+@keyframes gradientShift {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* =========================
+    MARK:
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    #remote .home-info h2{
+        font-size: 40px;
+    }
+
+    .support-card{
+        max-width: 100%;
+    }
+
+}
+
 #home .feature-thumb {
     position: relative;
     overflow: hidden;
@@ -134,7 +427,7 @@
 #home .feature-thumb p {
     position: relative;
     z-index: 1;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 
@@ -146,4 +439,609 @@
   align-items: center;
   justify-content: flex-start;
   height: 100%;
+}
+
+
+
+/* =========================
+    MARK:
+   CONTACT SECTION
+========================= */
+
+#contact {
+    text-align: center;
+}
+
+.section-title {
+    margin-bottom: 40px;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* =========================
+    MARK:
+   CONTACT CARD
+========================= */
+
+.contact-card {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    max-width: 360px;
+    min-height: 300px;
+
+    margin: 20px auto;
+
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,.08);
+
+    background: rgba(15,15,15,.92);
+
+    backdrop-filter: blur(10px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+    cursor: pointer;
+}
+
+/* Animated gradient */
+
+.contact-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            rgba(220,53,69,.90),
+            rgba(255,255,255,.15),
+            rgba(220,53,69,.90)
+        );
+
+    background-size: 600% 600%;
+
+    opacity: 0;
+
+    transition: opacity .5s ease;
+
+    z-index: 0;
+}
+
+/* Keep content above gradient */
+
+.contact-content {
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+    text-align: center;
+}
+
+/* Hover */
+
+.contact-card:hover::before {
+    opacity: 1;
+    animation: gradientShift 6s ease infinite;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #dc3545;
+
+    box-shadow:
+        0 0 25px rgba(220,53,69,.25),
+        0 0 60px rgba(220,53,69,.12);
+}
+
+/* =========================
+    MARK:
+   C TOP GLOW LINE
+========================= */
+
+.contact-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #dc3545,
+            transparent
+        );
+
+    opacity: .9;
+
+    z-index: 2;
+}
+
+/* =========================
+    MARK:
+   Contact TEXT
+========================= */
+
+.contact-content h4 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.contact-content p {
+    color: #d0d0d0;
+    line-height: 1.7;
+    margin-bottom: 18px;
+}
+
+.contact-content a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+.contact-content a:hover {
+    color: #dc3545;
+}
+/* =========================
+    MARK:
+   MAP
+   ========================= */
+
+.contact-map {
+    margin-top: 50px;
+    text-align: center;
+}
+
+/* Image next to map */
+.contact-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 14px;
+   
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    
+}
+
+/* Map sizing */
+.contact-map iframe {
+    width: 50%;
+    height: 400px;
+    border: 0;
+    border-radius: 14px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* =========================
+    MARK:
+   ANIMATION
+   ========================= */
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/* =========================
+    MARK:
+   PAYMENT PAGE
+============================= */
+
+body {
+    background: #050505;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ========================
+    MARK:
+   NAVBAR
+========================= */
+
+.custom-navbar {
+    background: #0a0a0a;
+    border-bottom: 2px solid #c90000;
+    padding: 10px 0;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.navbar-nav li a {
+    color: white !important;
+    transition: 0.3s;
+}
+
+.navbar-nav li a:hover,
+.navbar-nav .active a {
+    background: #c90000 !important;
+    color: white !important;
+}
+
+/* =========================
+    MARK:
+   HERO
+========================= */
+
+.payment-hero {
+    padding: 140px 0 80px;
+    background:
+        linear-gradient(rgba(0,0,0,.88), rgba(0,0,0,.92)),
+        url('../images/payment.jpg') center center/cover;
+    border-bottom: 2px solid #c90000;
+}
+
+.payment-hero h5 {
+    color: #fdfdfd;
+    letter-spacing: 3px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.payment-hero h1 {
+    font-size: 70px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.payment-hero h1 span {
+    color: #ffffff;
+}
+
+.payment-hero p {
+    font-size: 20px;
+    color: #d0d0d0;
+    max-width: 650px;
+}
+
+/* =========================
+    MARK:
+   PAYMENT SECTION
+========================= */
+
+.payment-section {
+    padding: 70px 0;
+}
+
+.payment-card {
+    position: relative;
+    overflow: hidden;
+
+    background: rgba(15,15,15,.92);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 20px;
+
+    padding: 40px;
+    height: 100%;
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+
+    cursor: pointer;
+}
+
+/* Animated red gradient */
+
+.payment-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            rgba(220,53,69,.90),
+            rgba(255,255,255,.15),
+            rgba(220,53,69,.90)
+        );
+
+    background-size: 600% 600%;
+
+    opacity: 0;
+
+    transition: opacity .5s ease;
+
+    z-index: 0;
+}
+
+/* Keep content above gradient */
+
+.payment-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Hover */
+
+.payment-card:hover::before {
+    opacity: 1;
+    animation: gradientShift 6s ease infinite;
+}
+
+.payment-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #dc3545;
+
+    box-shadow:
+        0 0 25px rgba(220,53,69,.25),
+        0 0 60px rgba(220,53,69,.12);
+}
+
+/*=========================
+    MARK:
+   PAYMENT CARD TOP GLOW
+========================= */
+
+.payment-card::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #dc3545,
+            transparent
+        );
+
+    opacity: .9;
+
+    z-index: 2;
+}
+
+/* =========================
+    MARK:
+   PAYMENT TEXT
+========================= */
+
+.payment-card h2 {
+    color: white;
+
+    font-size: 28px;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+/* =========================
+    MARK:
+   Payment BUTTONS
+========================= */
+
+.pay-btn {
+    background: linear-gradient(90deg, #d40000, #ff2b2b);
+    color: white;
+    border: none;
+    padding: 16px;
+    width: 100%;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    transition: .3s;
+    margin-bottom: 25px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.pay-btn:hover {
+    transform: scale(1.02);
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 0 20px rgba(255,0,0,.3);
+}
+
+.review-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .3s;
+}
+
+.review-btn:hover {
+    transform: scale(1.02);
+    text-decoration: none;
+}
+
+/* Google */
+
+.google-btn {
+    background: white;
+    color: #222;
+}
+
+/* Facebook */
+
+.facebook-btn {
+    background: #1877f2;
+    color: white;
+}
+
+/* =========================
+    MARK:
+   FEATURE BOX TOP GLOW
+========================= */
+
+.feature-box::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            to right,
+            transparent,
+            #dc3545,
+            transparent
+        );
+
+    opacity: .9;
+
+    z-index: 2;
+}
+/* =========================
+    MARK:
+   FEATURES
+========================= */
+
+.features { 
+    margin-top: 50px; 
+}
+
+.feature-box {
+    position: relative;
+     overflow: hidden; 
+
+     width: 100%; 
+     max-width: 360px; 
+
+     margin: 20px auto;
+
+    border-radius: 20px; 
+    border: 1px solid rgba(255,255,255,.08); 
+
+    background: rgba(15,15,15,.92); 
+
+    backdrop-filter: blur(10px);
+
+    padding: 25px;
+    text-align: center;
+
+    transition: transform 0.35s ease, 
+    box-shadow 0.35s ease, 
+    border-color 0.35s ease; 
+    
+    cursor: pointer;
+}
+
+.feature-box::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            270deg,
+            rgba(220,53,69,.90),
+            rgba(255,255,255,.15),
+            rgba(220,53,69,.90)
+        );
+
+    background-size: 600% 600%;
+
+    opacity: 0;
+
+    transition: opacity .5s ease;
+
+    z-index: 0;
+}
+
+.feature-box > * {
+    position: relative;
+    z-index: 1;
+}
+
+.feature-box:hover::before {
+    opacity: 1;
+    animation: gradientShift 6s ease infinite;
+}
+
+.feature-box:hover {
+    transform: translateY(-10px);
+
+    border-color: #dc3545;
+
+    box-shadow:
+        0 0 25px rgba(220,53,69,.25),
+        0 0 60px rgba(220,53,69,.12);
+}
+
+.feature-box i { 
+    font-size: 35px; 
+    color: #e30000; 
+    margin-bottom: 15px; 
+} 
+.feature-box h4 { 
+    font-weight: 700;
+     color: white;
+}
+ .feature-box p { 
+    color: #a8a8a8;
+     margin: 0;
+}
+/* =========================
+    MARK:
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .payment-hero h1{
+        font-size: 42px;
+    }
+
+    .payment-card{
+        margin-bottom: 30px;
+    }
+
 }
