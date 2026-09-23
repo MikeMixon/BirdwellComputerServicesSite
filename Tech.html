@@ -3,8 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tech Field Cheatsheet</title>
-    <style>
+    <title>Tech Resources | Birdwell Computer Services</title>
+      <!-- Bootstrap & Template CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/owl.carousel.css">
+  <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="assets/css/templatemo-style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/x-icon" href="assets/images/Logo2.ico">
+
+    <!--<style>
       :root {
         color-scheme: dark;
         --bg: #0b1220;
@@ -199,19 +208,62 @@
         padding: 2px 5px;
         border-radius: 3px
       }
-    </style>
+    </style>-->
   </head>
-  <body>
-    <header>
-      <h1>Tech Field Cheatsheet</h1>
-      <p class="lead">Quick commands for endpoint support, networking, and Linux administration. Replace examples in angle brackets before running. Review the target system and authorization first.</p>
-      <div class="toolbar"><input id="search" type="search" placeholder="Search commands, switches, or descriptions…" aria-label="Search cheatsheet"><button id="clear" type="button">Clear</button></div>
-      <p id="count" aria-live="polite"></p>
-    </header>
-    <main>
-      <details open>
-        <summary>Windows CMD and batch</summary>
-        <div class="content">
+  <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+    <!-- MARK: NAVBAR -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" type="button">
+            <span class="icon icon-bar"></span>
+            <span class="icon icon-bar"></span>
+            <span class="icon icon-bar"></span>
+          </button>
+          <a href="index.html" class="navbar-brand">Birdwell Computer Services</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-nav-first">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="remoteSupport.html">Remote Support</a></li>
+            <li><a href="https://bcs.servicedesk.atera.com/login?redirectTo=%2F" target="_blank" rel="noopener">Customer Portal</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="pay.html">Payment</a></li>
+            <li class="active"><a href="Tech.html">Tech</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARK: TECH RESOURCES HERO -->
+    <section class="payment-hero">
+      <div class="container">
+        <h5>FIELD SUPPORT RESOURCES</h5>
+        <h1>TECH <span>CHEATSHEET</span></h1>
+        <p>Quick commands for endpoint support, networking, and Linux administration. Review the target system and authorization before running commands.</p>
+      </div>
+    </section>
+
+    <!-- MARK: TECH CHEATSHEET -->
+    <main class="payment-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="input-group">
+              <input id="search" class="form-control" type="search" placeholder="Search commands, switches, or descriptions..." aria-label="Search cheatsheet">
+              <span class="input-group-btn">
+                <button id="clear" class="btn btn-danger" type="button">Clear</button>
+              </span>
+            </div>
+            <p id="count" aria-live="polite"></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+      <!-- MARK: WINDOWS CMD AND BATCH -->
+      <details class="panel panel-danger" open>
+        <summary class="panel-heading">Windows CMD and batch</summary>
+        <div class="content panel-body">
           <div class="item">
             <p>Show network configuration and DNS details.</p>
             <div class="row">
@@ -323,9 +375,10 @@ if errorlevel 1 (echo Unreachable) else (echo Responding)</code></pre>
           </div>
         </div>
       </details>
-      <details>
-        <summary>PowerShell</summary>
-        <div class="content">
+      <!-- MARK: POWERSHELL -->
+      <details class="panel panel-danger">
+        <summary class="panel-heading">PowerShell</summary>
+        <div class="content panel-body">
           <div class="item">
             <p>List local users and inspect account flags. Run elevated to change accounts.</p>
             <div class="row">
@@ -397,9 +450,10 @@ Get-WinEvent -FilterHashtable @{LogName='System'; Level=2; StartTime=(Get-Date).
           </div>
         </div>
       </details>
-      <details>
-        <summary>Bash and Linux</summary>
-        <div class="content">
+      <!-- MARK: BASH AND LINUX -->
+      <details class="panel panel-danger">
+        <summary class="panel-heading">Bash and Linux</summary>
+        <div class="content panel-body">
           <div class="item">
             <p>Identify host, kernel, distribution, and current user.</p>
             <div class="row">
@@ -487,9 +541,10 @@ rsync -avh source/ destination/</code></pre>
           </div>
         </div>
       </details>
-      <details>
-        <summary>Subnetting quick reference</summary>
-        <div class="content">
+      <!-- MARK: SUBNETTING QUICK REFERENCE -->
+      <details class="panel panel-danger">
+        <summary class="panel-heading">Subnetting quick reference</summary>
+        <div class="content panel-body">
           <p class="note">IPv4 usable hosts assume a conventional subnet with network and broadcast addresses reserved. /31 is commonly used for point-to-point links; /32 is one host route.</p>
           <div class="tablewrap">
             <table>
@@ -584,17 +639,30 @@ rsync -avh source/ destination/</code></pre>
           </div>
         </div>
       </details>
-      <details>
-        <summary>Field notes</summary>
-        <div class="content">
+      <!-- MARK: FIELD NOTES -->
+      <details class="panel panel-danger">
+        <summary class="panel-heading">Field notes</summary>
+        <div class="content panel-body">
           <p class="note">GitHub Pages publishes static files publicly. A password prompt implemented only in this HTML would expose the content in page source. Place this page in a genuinely access-controlled service if it must remain private. Keep client names, passwords, recovery keys, tokens, and private network diagrams out of a public repository.</p>
           <p>Commands that change users, passwords, files, services, or network settings can interrupt access. Run them with the appropriate privileges and verify scope first. Linux commands assume common GNU/systemd tools; distributions differ.</p>
         </div>
       </details>
+          </div>
+        </div>
+      </div>
     </main>
-    <footer>Standalone HTML • Works offline • Use search to filter sections and individual commands</footer>
+
+    <!-- MARK: FOOTER -->
+    <footer id="footer">
+      <div class="container">
+        <div class="row text-center">
+          <p>&copy; Birdwell Computers | Serving the South Texas Region since 1999!</p>
+        </div>
+      </div>
+    </footer>
+    <!-- MARK: COMMAND COPY BUTTONS AND SEARCH -->
     <script>
-      for (const row of document.querySelectorAll('.row')) {
+      for (const row of document.querySelectorAll('.item .row')) {
         const b = document.createElement('button');
         b.className = 'copy';
         b.type = 'button';
