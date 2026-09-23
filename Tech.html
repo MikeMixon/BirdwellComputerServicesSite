@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Field Cheatsheet</title>
+<style>
+:root{color-scheme:dark;--bg:#0b1220;--card:#142036;--line:#30415c;--text:#edf4ff;--muted:#aec0d7;--accent:#58c9d4;--code:#07101d}*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#10243a,#0b1220 42%);font:16px/1.5 system-ui,Segoe UI,sans-serif;color:var(--text)}header,main,footer{max-width:1100px;margin:auto;padding:24px}header{padding-top:44px}h1{font-size:clamp(2rem,5vw,3.5rem);margin:0}h2{margin:0 0 10px;font-size:1.3rem}.lead{color:var(--muted);max-width:750px}input{width:100%;padding:15px 18px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--text);font:inherit}input:focus,button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}.toolbar{display:flex;gap:10px;align-items:center;margin:22px 0}button{cursor:pointer;border:1px solid var(--line);border-radius:8px;background:#213550;color:var(--text);padding:8px 12px;font:inherit}button:hover{border-color:var(--accent)}main{padding-top:0}details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin:14px 0;overflow:hidden}summary{cursor:pointer;padding:18px 20px;font-size:1.25rem;font-weight:700}summary::marker{color:var(--accent)}.content{padding:0 20px 18px}.item{padding:14px 0;border-top:1px solid var(--line)}.item p{margin:0 0 8px;color:var(--muted)}.row{display:flex;align-items:start;gap:8px}.row pre{flex:1;margin:0;overflow:auto;background:var(--code);border-radius:8px;padding:12px;white-space:pre-wrap;overflow-wrap:anywhere}code,pre{font:13px/1.55 ui-monospace,SFMono-Regular,Consolas,monospace}.copy{flex:none;font-size:13px}.note{background:#263449;border-left:3px solid var(--accent);padding:12px 15px;border-radius:5px;color:#d9e8f5}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:530px}th,td{text-align:left;border-bottom:1px solid var(--line);padding:8px}th{color:var(--accent)}.hidden{display:none!important}footer{color:var(--muted);font-size:14px}kbd{background:var(--code);padding:2px 5px;border-radius:3px}
+</style>
+</head>
+<body>
+<header><h1>Tech Field Cheatsheet</h1><p class="lead">Quick commands for endpoint support, networking, and Linux administration. Replace examples in angle brackets before running. Review the target system and authorization first.</p><div class="toolbar"><input id="search" type="search" placeholder="Search commands, switches, or descriptions…" aria-label="Search cheatsheet"><button id="clear" type="button">Clear</button></div><p id="count" aria-live="polite"></p></header>
+<main>
+<details open><summary>Windows CMD and batch</summary><div class="content">
+<div class="item"><p>Show network configuration and DNS details.</p><div class="row"><pre><code>ipconfig /all</code></pre></div></div>
+<div class="item"><p>Renew DHCP lease and clear DNS resolver cache.</p><div class="row"><pre><code>ipconfig /release &amp; ipconfig /renew
+ipconfig /flushdns</code></pre></div></div>
+<div class="item"><p>Query DNS with a specific server.</p><div class="row"><pre><code>nslookup example.com 1.1.1.1</code></pre></div></div>
+<div class="item"><p>Show route table, ARP cache, and listening connections.</p><div class="row"><pre><code>route print
+arp -a
+netstat -ano</code></pre></div></div>
+<div class="item"><p>Trace a route without resolving hop names.</p><div class="row"><pre><code>tracert -d 8.8.8.8</code></pre></div></div>
+<div class="item"><p>List local accounts; inspect one account.</p><div class="row"><pre><code>net user
+net user "&lt;username&gt;"</code></pre></div></div>
+<div class="item"><p>Enable or disable a local account (elevated CMD).</p><div class="row"><pre><code>net user "&lt;username&gt;" /active:yes
+net user "&lt;username&gt;" /active:no</code></pre></div></div>
+<div class="item"><p>List local groups and their members.</p><div class="row"><pre><code>net localgroup
+net localgroup Administrators</code></pre></div></div>
+<div class="item"><p>Map or remove a network drive.</p><div class="row"><pre><code>net use Z: \\server\share /persistent:yes
+net use Z: /delete</code></pre></div></div>
+<div class="item"><p>Display interfaces and Wi-Fi profiles. Exported profiles can contain sensitive connection details.</p><div class="row"><pre><code>netsh interface show interface
+netsh wlan show profiles
+netsh wlan show profile name="&lt;SSID&gt;"</code></pre></div></div>
+<div class="item"><p>Show IPv4 settings and Windows Firewall status.</p><div class="row"><pre><code>netsh interface ipv4 show config
+netsh advfirewall show allprofiles</code></pre></div></div>
+<div class="item"><p>Check Windows image and system files (elevated CMD).</p><div class="row"><pre><code>DISM /Online /Cleanup-Image /ScanHealth
+DISM /Online /Cleanup-Image /RestoreHealth
+sfc /scannow</code></pre></div></div>
+<div class="item"><p>List scheduled tasks and services.</p><div class="row"><pre><code>schtasks /query /fo LIST /v
+sc query type= service state= all</code></pre></div></div>
+<div class="item"><p>Batch: quote paths, set a variable, test for a file, and loop over text files.</p><div class="row"><pre><code>@echo off
+setlocal
+set "LOG=%TEMP%\tech-log.txt"
+if exist "%LOG%" echo Log exists
+for %%F in ("C:\Logs\*.txt") do echo %%~nxF
+endlocal</code></pre></div></div>
+<div class="item"><p>Batch: check a command exit code.</p><div class="row"><pre><code>ping -n 1 192.0.2.1 &gt;nul
+if errorlevel 1 (echo Unreachable) else (echo Responding)</code></pre></div></div>
+</div></details>
+<details><summary>PowerShell</summary><div class="content">
+<div class="item"><p>List local users and inspect account flags. Run elevated to change accounts.</p><div class="row"><pre><code>Get-LocalUser
+Get-LocalUser -Name "&lt;username&gt;" | Format-List *</code></pre></div></div>
+<div class="item"><p>Enable a local account and prevent its password from expiring.</p><div class="row"><pre><code>Enable-LocalUser -Name "&lt;username&gt;"
+Set-LocalUser -Name "&lt;username&gt;" -PasswordNeverExpires $true</code></pre></div></div>
+<div class="item"><p>Disable a local account or require password expiry again.</p><div class="row"><pre><code>Disable-LocalUser -Name "&lt;username&gt;"
+Set-LocalUser -Name "&lt;username&gt;" -PasswordNeverExpires $false</code></pre></div></div>
+<div class="item"><p>Legacy WMIC equivalent for local accounts. WMIC may be absent on recent Windows builds; prefer PowerShell above.</p><div class="row"><pre><code>wmic useraccount where "name='Owner' and localaccount=true" set PasswordExpires=False</code></pre></div></div>
+<div class="item"><p>Set a local password without putting the password in command history.</p><div class="row"><pre><code>$password = Read-Host "New password" -AsSecureString
+Set-LocalUser -Name "&lt;username&gt;" -Password $password</code></pre></div></div>
+<div class="item"><p>View IP settings, DNS servers, and network profile.</p><div class="row"><pre><code>Get-NetIPConfiguration
+Get-DnsClientServerAddress
+Get-NetConnectionProfile</code></pre></div></div>
+<div class="item"><p>Test TCP connectivity and DNS resolution.</p><div class="row"><pre><code>Test-NetConnection server.example.com -Port 443
+Resolve-DnsName example.com</code></pre></div></div>
+<div class="item"><p>Find a process by PID from netstat; inspect services and recent system errors.</p><div class="row"><pre><code>Get-Process -Id &lt;PID&gt;
+Get-Service | Where-Object Status -eq Running
+Get-WinEvent -FilterHashtable @{LogName='System'; Level=2; StartTime=(Get-Date).AddDays(-1)} -MaxEvents 20</code></pre></div></div>
+<div class="item"><p>Export selected process information to CSV.</p><div class="row"><pre><code>Get-Process | Select-Object Name,Id,CPU | Export-Csv "$env:TEMP\processes.csv" -NoTypeInformation</code></pre></div></div>
+<div class="item"><p>Search files recursively for text.</p><div class="row"><pre><code>Get-ChildItem C:\Logs -File -Recurse | Select-String -Pattern 'error'</code></pre></div></div>
+</div></details>
+<details><summary>Bash and Linux</summary><div class="content">
+<div class="item"><p>Identify host, kernel, distribution, and current user.</p><div class="row"><pre><code>hostnamectl
+cat /etc/os-release
+uname -a
+id</code></pre></div></div>
+<div class="item"><p>List disks, mounts, available space, and memory.</p><div class="row"><pre><code>lsblk -f
+df -hT
+findmnt
+free -h</code></pre></div></div>
+<div class="item"><p>Inspect addresses, routes, sockets, and a DNS answer.</p><div class="row"><pre><code>ip -br addr
+ip route
+ss -tulpn
+dig example.com +short</code></pre></div></div>
+<div class="item"><p>Test a TCP service and inspect HTTP response headers.</p><div class="row"><pre><code>nc -vz server.example.com 443
+curl -I https://example.com</code></pre></div></div>
+<div class="item"><p>Inspect services and recent logs on systemd hosts.</p><div class="row"><pre><code>systemctl status ssh
+journalctl -u ssh --since "1 hour ago" --no-pager</code></pre></div></div>
+<div class="item"><p>Search logs and follow new lines.</p><div class="row"><pre><code>grep -Rni 'error' /var/log 2&gt;/dev/null
+tail -f /var/log/syslog</code></pre></div></div>
+<div class="item"><p>Locate large directories and files. Run within the intended filesystem.</p><div class="row"><pre><code>du -h -d 1 /var | sort -h
+find /var/log -type f -size +100M -print</code></pre></div></div>
+<div class="item"><p>Permissions and ownership examples.</p><div class="row"><pre><code>stat /path/to/file
+chmod 640 /path/to/file
+chown user:group /path/to/file</code></pre></div></div>
+<div class="item"><p>Safely quote Bash variables and check command success.</p><div class="row"><pre><code>file="/path/with spaces/report.txt"
+if grep -q 'error' "$file"; then echo "Found error"; fi</code></pre></div></div>
+<div class="item"><p>Archive and extract a directory.</p><div class="row"><pre><code>tar -czf backup.tar.gz directory/
+tar -tzf backup.tar.gz
+tar -xzf backup.tar.gz</code></pre></div></div>
+<div class="item"><p>Synchronize a directory with a preview first. Trailing slashes affect rsync behavior.</p><div class="row"><pre><code>rsync -avhn source/ destination/
+rsync -avh source/ destination/</code></pre></div></div>
+</div></details>
+<details><summary>Subnetting quick reference</summary><div class="content"><p class="note">IPv4 usable hosts assume a conventional subnet with network and broadcast addresses reserved. /31 is commonly used for point-to-point links; /32 is one host route.</p><div class="tablewrap"><table><thead><tr><th>CIDR</th><th>Mask</th><th>Addresses</th><th>Usable hosts</th><th>Block size in changing octet</th></tr></thead><tbody>
+<tr><td>/16</td><td>255.255.0.0</td><td>65,536</td><td>65,534</td><td>1 in 2nd octet</td></tr><tr><td>/24</td><td>255.255.255.0</td><td>256</td><td>254</td><td>1 in 3rd octet</td></tr><tr><td>/25</td><td>255.255.255.128</td><td>128</td><td>126</td><td>128</td></tr><tr><td>/26</td><td>255.255.255.192</td><td>64</td><td>62</td><td>64</td></tr><tr><td>/27</td><td>255.255.255.224</td><td>32</td><td>30</td><td>32</td></tr><tr><td>/28</td><td>255.255.255.240</td><td>16</td><td>14</td><td>16</td></tr><tr><td>/29</td><td>255.255.255.248</td><td>8</td><td>6</td><td>8</td></tr><tr><td>/30</td><td>255.255.255.252</td><td>4</td><td>2</td><td>4</td></tr><tr><td>/31</td><td>255.255.255.254</td><td>2</td><td>2 on point-to-point</td><td>2</td></tr><tr><td>/32</td><td>255.255.255.255</td><td>1</td><td>1 host route</td><td>1</td></tr>
+</tbody></table></div><div class="item"><p>Method: block size = 256 minus the mask value in the changing octet. Example: 192.168.10.77/27 has block size 32; .77 falls in .64–.95. Network .64, usable .65–.94, broadcast .95.</p></div><div class="item"><p>Common private IPv4 ranges: 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16. Link-local IPv4: 169.254.0.0/16. Loopback: 127.0.0.0/8.</p></div></div></details>
+<details><summary>Field notes</summary><div class="content"><p class="note">GitHub Pages publishes static files publicly. A password prompt implemented only in this HTML would expose the content in page source. Place this page in a genuinely access-controlled service if it must remain private. Keep client names, passwords, recovery keys, tokens, and private network diagrams out of a public repository.</p><p>Commands that change users, passwords, files, services, or network settings can interrupt access. Run them with the appropriate privileges and verify scope first. Linux commands assume common GNU/systemd tools; distributions differ.</p></div></details>
+</main><footer>Standalone HTML • Works offline • Use search to filter sections and individual commands</footer>
+<script>
+for(const row of document.querySelectorAll('.row')){const b=document.createElement('button');b.className='copy';b.type='button';b.textContent='Copy';b.setAttribute('aria-label','Copy command');b.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(row.querySelector('code').innerText);b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1400)}catch{b.textContent='Select text';setTimeout(()=>b.textContent='Copy',1800)}});row.append(b)}
+const input=document.querySelector('#search'),count=document.querySelector('#count');function filter(){const q=input.value.trim().toLowerCase();let visible=0;for(const section of document.querySelectorAll('main details')){const items=[...section.querySelectorAll('.item')];if(!items.length){section.classList.toggle('hidden',!!q&&!section.textContent.toLowerCase().includes(q));continue}let hits=0;for(const item of items){const match=!q||item.textContent.toLowerCase().includes(q)||section.querySelector('summary').textContent.toLowerCase().includes(q);item.classList.toggle('hidden',!match);if(match)hits++}section.classList.toggle('hidden',hits===0);if(q&&hits)section.open=true;visible+=hits}count.textContent=q?`${visible} matching entries`:''}input.addEventListener('input',filter);document.querySelector('#clear').addEventListener('click',()=>{input.value='';filter();input.focus()});
+</script>
+</body></html>
