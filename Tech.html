@@ -545,16 +545,16 @@ rsync -avh source/ destination/</code></pre>
       <details class="panel panel-danger">
         <summary class="panel-heading">Subnetting quick reference</summary>
         <div class="content panel-body">
-          <p class="note">IPv4 usable hosts assume a conventional subnet with network and broadcast addresses reserved. /31 is commonly used for point-to-point links; /32 is one host route.</p>
-          <div class="tablewrap">
-            <table>
+          <p class="alert alert-info">IPv4 usable hosts assume a conventional subnet with network and broadcast addresses reserved. /31 is commonly used for point-to-point links; /32 is one host route.</p>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-condensed text-muted">
               <thead>
-                <tr>
-                  <th>CIDR</th>
-                  <th>Mask</th>
-                  <th>Addresses</th>
-                  <th>Usable hosts</th>
-                  <th>Block size in changing octet</th>
+                <tr class="danger">
+                  <th scope="col">CIDR</th>
+                  <th scope="col">Mask</th>
+                  <th scope="col">Addresses</th>
+                  <th scope="col">Usable hosts</th>
+                  <th scope="col">Block size in changing octet</th>
                 </tr>
               </thead>
               <tbody>
